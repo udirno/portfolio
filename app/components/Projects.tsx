@@ -47,7 +47,7 @@ export function Projects({ projects }: ProjectsProps) {
           </h2>
         </motion.div>
 
-        {/* Projects Grid - centered for 2 items */}
+        {/* Projects Grid - centered layout */}
         <motion.div
           variants={containerVariants}
           initial="hidden"

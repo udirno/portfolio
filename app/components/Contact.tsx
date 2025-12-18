@@ -7,26 +7,26 @@ const socialLinks = [
   {
     name: 'LinkedIn',
     icon: Linkedin,
-    href: 'https://www.linkedin.com/in/udirno-chaudhuri/',
+    href: 'https://www.linkedin.com/in/udirno/',
     color: 'hover:text-blue-500',
   },
   {
     name: 'GitHub',
     icon: Github,
-    href: 'https://github.com/yourusername',
+    href: 'https://github.com/udirno',
     color: 'hover:text-gray-300',
-  },
-  {
-    name: 'LinkTree',
-    icon: LinkIcon,
-    href: 'https://linktr.ee/yourprofile',
-    color: 'hover:text-green-500',
   },
   {
     name: 'Email',
     icon: Mail,
-    href: 'mailto:your.email@example.com',
+    href: 'mailto:udirno@gmail.com',
     color: 'hover:text-red-500',
+  },
+  {
+    name: 'LinkTree',
+    icon: LinkIcon,
+    href: 'https://linktr.ee/udirno',
+    color: 'hover:text-green-500',
   },
 ];
 
@@ -61,7 +61,7 @@ export function Contact() {
             <motion.a
               key={link.name}
               href={link.href}
-              target="_blank"
+              target={link.name === 'Email' ? '_self' : '_blank'}
               rel="noopener noreferrer"
               initial={{ opacity: 0, scale: 0.8 }}
               whileInView={{ opacity: 1, scale: 1 }}
@@ -88,7 +88,15 @@ export function Contact() {
             © {new Date().getFullYear()} Udirno Chaudhuri. All rights reserved.
           </p>
           <p className="text-gray-600 text-xs mt-2">
-            Designed with precision. Built with passion.
+            Built with{' '}
+            <a
+              href="https://claude.ai/code"
+              className="text-red-600 hover:text-red-400 transition-colors"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              Claude Code
+            </a>
           </p>
         </motion.div>
       </div>

@@ -46,6 +46,14 @@ export function Navigation() {
           {/* Nav Links */}
           <div className="flex items-center gap-8">
             <motion.button
+              onClick={() => scrollToSection('about')}
+              whileHover={{ scale: 1.1, y: -2 }}
+              whileTap={{ scale: 0.95 }}
+              className="text-sm hover:text-red-600 transition-colors font-medium"
+            >
+              About
+            </motion.button>
+            <motion.button
               onClick={() => scrollToSection('projects')}
               whileHover={{ scale: 1.1, y: -2 }}
               whileTap={{ scale: 0.95 }}

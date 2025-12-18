@@ -21,7 +21,7 @@ export function Hero() {
     >
       {/* Brighter Solar System Background with Orbital Rings */}
       <div className="absolute inset-0 bg-gradient-to-b from-gray-900 via-black to-black">
-        {/* Central radial glow - much brighter */}
+        {/* Central radial glow - spread evenly for better text contrast */}
         <motion.div
           initial={{ opacity: 0, scale: 0.5 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -29,11 +29,12 @@ export function Hero() {
           className="absolute inset-0"
           style={{
             background: `
-              radial-gradient(ellipse 80% 60% at 50% 45%,
-                rgba(220, 38, 38, 0.4) 0%,
-                rgba(239, 68, 68, 0.25) 15%,
-                rgba(139, 27, 27, 0.15) 35%,
-                transparent 70%
+              radial-gradient(ellipse 100% 80% at 50% 50%,
+                rgba(220, 38, 38, 0.35) 0%,
+                rgba(239, 68, 68, 0.28) 30%,
+                rgba(139, 27, 27, 0.22) 50%,
+                rgba(64, 12, 12, 0.15) 70%,
+                transparent 90%
               )
             `,
           }}
@@ -52,25 +53,25 @@ export function Hero() {
         >
           <svg
             viewBox="0 0 100 100"
-            className="w-full h-full opacity-8"
+            className="w-full h-full opacity-30"
             preserveAspectRatio="none"
             style={{
-              filter: 'drop-shadow(0 10px 30px rgba(220, 38, 38, 0.2))',
+              filter: 'drop-shadow(0 10px 30px rgba(220, 38, 38, 0.4))',
             }}
           >
             <defs>
               <linearGradient id="pyramidGradient" x1="0%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#EF4444" stopOpacity="0.3" />
-                <stop offset="50%" stopColor="#DC2626" stopOpacity="0.2" />
-                <stop offset="100%" stopColor="#991B1B" stopOpacity="0.1" />
+                <stop offset="0%" stopColor="#EF4444" stopOpacity="0.65" />
+                <stop offset="50%" stopColor="#DC2626" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="#991B1B" stopOpacity="0.35" />
               </linearGradient>
               <linearGradient id="pyramidSide1" x1="0%" y1="0%" x2="100%" y2="100%">
-                <stop offset="0%" stopColor="#DC2626" stopOpacity="0.25" />
-                <stop offset="100%" stopColor="#7F1D1D" stopOpacity="0.15" />
+                <stop offset="0%" stopColor="#DC2626" stopOpacity="0.55" />
+                <stop offset="100%" stopColor="#7F1D1D" stopOpacity="0.4" />
               </linearGradient>
               <linearGradient id="pyramidSide2" x1="100%" y1="0%" x2="0%" y2="100%">
-                <stop offset="0%" stopColor="#EF4444" stopOpacity="0.2" />
-                <stop offset="100%" stopColor="#991B1B" stopOpacity="0.1" />
+                <stop offset="0%" stopColor="#EF4444" stopOpacity="0.5" />
+                <stop offset="100%" stopColor="#991B1B" stopOpacity="0.35" />
               </linearGradient>
             </defs>
 
@@ -108,10 +109,10 @@ export function Hero() {
               transition={{ duration: 4, repeat: Infinity, ease: 'easeInOut' }}
             />
 
-            {/* Subtle pyramid edges */}
-            <line x1="50" y1="20" x2="0" y2="95" stroke="#EF4444" strokeWidth="0.5" opacity="0.25" />
-            <line x1="50" y1="20" x2="100" y2="95" stroke="#EF4444" strokeWidth="0.5" opacity="0.25" />
-            <line x1="0" y1="95" x2="100" y2="95" stroke="#DC2626" strokeWidth="0.8" opacity="0.2" />
+            {/* Pyramid edges - more visible */}
+            <line x1="50" y1="20" x2="0" y2="95" stroke="#EF4444" strokeWidth="1.5" opacity="0.6" />
+            <line x1="50" y1="20" x2="100" y2="95" stroke="#EF4444" strokeWidth="1.5" opacity="0.6" />
+            <line x1="0" y1="95" x2="100" y2="95" stroke="#DC2626" strokeWidth="2" opacity="0.55" />
           </svg>
         </motion.div>
 
@@ -128,9 +129,9 @@ export function Hero() {
         >
           <svg
             viewBox="0 0 200 200"
-            className="w-full h-full opacity-25"
+            className="w-full h-full opacity-50"
             style={{
-              filter: 'drop-shadow(0 10px 30px rgba(220, 38, 38, 0.3))',
+              filter: 'drop-shadow(0 10px 30px rgba(220, 38, 38, 0.5))',
             }}
           >
             {/* Inverted pyramid pointing down */}
@@ -207,8 +208,8 @@ export function Hero() {
             ry="20%"
             fill="none"
             stroke="url(#ringGradient1)"
-            strokeWidth="1"
-            opacity="0.4"
+            strokeWidth="1.5"
+            opacity="0.7"
             animate={{ rotate: 360 }}
             transition={{ duration: 60, repeat: Infinity, ease: 'linear' }}
             style={{ transformOrigin: '50% 50%' }}
@@ -222,8 +223,8 @@ export function Hero() {
             ry="30%"
             fill="none"
             stroke="url(#ringGradient2)"
-            strokeWidth="0.5"
-            opacity="0.3"
+            strokeWidth="1"
+            opacity="0.6"
             animate={{ rotate: -360 }}
             transition={{ duration: 90, repeat: Infinity, ease: 'linear' }}
             style={{ transformOrigin: '50% 50%' }}
@@ -237,8 +238,8 @@ export function Hero() {
             ry="12%"
             fill="none"
             stroke="url(#ringGradient1)"
-            strokeWidth="0.5"
-            opacity="0.5"
+            strokeWidth="1"
+            opacity="0.8"
             animate={{ rotate: 360 }}
             transition={{ duration: 40, repeat: Infinity, ease: 'linear' }}
             style={{ transformOrigin: '50% 50%' }}
@@ -306,13 +307,13 @@ export function Hero() {
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
               textShadow: `
-                0 0 40px rgba(239, 68, 68, 0.8),
-                0 10px 30px rgba(0, 0, 0, 0.5),
-                0 20px 60px rgba(220, 38, 38, 0.6)
+                0 0 60px rgba(239, 68, 68, 1),
+                0 0 30px rgba(239, 68, 68, 0.8),
+                0 5px 20px rgba(0, 0, 0, 0.9)
               `,
               filter: `
-                drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4))
-                drop-shadow(0 0 40px rgba(239, 68, 68, 0.5))
+                drop-shadow(0 0 20px rgba(239, 68, 68, 0.8))
+                drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6))
               `,
             }}
           >
@@ -330,13 +331,13 @@ export function Hero() {
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
               textShadow: `
-                0 0 40px rgba(239, 68, 68, 0.8),
-                0 10px 30px rgba(0, 0, 0, 0.5),
-                0 20px 60px rgba(220, 38, 38, 0.6)
+                0 0 60px rgba(239, 68, 68, 1),
+                0 0 30px rgba(239, 68, 68, 0.8),
+                0 5px 20px rgba(0, 0, 0, 0.9)
               `,
               filter: `
-                drop-shadow(0 5px 15px rgba(0, 0, 0, 0.4))
-                drop-shadow(0 0 40px rgba(239, 68, 68, 0.5))
+                drop-shadow(0 0 20px rgba(239, 68, 68, 0.8))
+                drop-shadow(0 5px 15px rgba(0, 0, 0, 0.6))
               `,
               pointerEvents: 'none',
               paddingTop: '30px',

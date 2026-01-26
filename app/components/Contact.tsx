@@ -45,7 +45,7 @@ export function Contact() {
           className="mb-12"
         >
           <h2 className="text-5xl md:text-6xl font-bold">
-            Let's <span className="text-red-600">Connect</span>
+            Let&apos;s <span className="text-red-600">Connect</span>
           </h2>
         </motion.div>
 

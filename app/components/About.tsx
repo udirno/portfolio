@@ -143,7 +143,7 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="text-lg md:text-xl text-gray-300 leading-relaxed mb-12"
         >
-          I'm Udirno. I build stuff — search tools, automation, websites. 24, figuring it out.
+          I&apos;m Udirno. I build stuff — search tools, automation, websites. 24, figuring it out.
         </motion.p>
 
         {/* Badges */}

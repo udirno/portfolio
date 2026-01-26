@@ -6,3 +6,29 @@ tags: ["Python", "Claude API", "Gmail API", "Local-First"]
 github: "https://github.com/udirno/gmail-promo-agent"
 blog: "https://medium.com/@udirno/how-i-built-a-gmail-promo-agent-with-claude-in-one-day-378562474170"
 ---
+
+## The Problem
+
+We all get dozens of promotional emails every week. When you actually need a discount code, you waste 10+ minutes digging through your inbox searching for "promo," "discount," or that one brand you remember seeing. By the time you find it (if you find it), the code might be expired.
+
+## The Solution
+
+I built a local-first AI agent that automatically scans your Gmail inbox, extracts promo codes, and organizes them in a clean interface. It runs entirely on your machine—no data leaves your computer—and uses Claude&apos;s API to intelligently parse promotional emails.
+
+### Key Features
+
+- **Automated scanning** of promotional emails using Gmail API
+- **AI-powered extraction** using Claude to identify codes and expiration dates
+- **Local-first architecture**—your email data never leaves your machine
+- **Smart categorization** by brand, category, and expiration status
+- **One-day build**—designed and shipped in a single focused session
+
+### Technical Implementation
+
+Built with Python, the Gmail API for email access, and Claude&apos;s API for natural language understanding. The agent authenticates via OAuth, fetches promotional emails, and uses Claude to parse unstructured text into structured promo code data.
+
+## The Impact
+
+What used to take 10 minutes now takes 10 seconds. Instead of searching through hundreds of emails, I have a curated list of active promo codes organized by category. The local-first approach means I don&apos;t have to trust a third-party service with my email data.
+
+**Built in one day. Saved hours every month.**

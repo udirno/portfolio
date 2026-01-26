@@ -6,3 +6,31 @@ tags: ["Python", "ChromaDB", "Sentence Transformers", "RAG"]
 github: "https://github.com/udirno/lyriclens"
 blog: "#"
 ---
+
+## The Problem
+
+You know that feeling when a song is stuck in your head, but you can only remember the vibe or theme? Traditional search requires exact lyric matches—"I remember something about dancing in the moonlight"—but that phrase might not appear anywhere in the actual song. Spotify search fails, Google is hit-or-miss, and you&apos;re left humming frustratedly.
+
+## The Solution
+
+LyricLens is a semantic search engine for song lyrics. Instead of keyword matching, it understands meaning. Search for "feeling lost in a big city" and find songs about urban alienation, even if they never use those exact words.
+
+### How It Works
+
+1. **Data collection**: Export your Spotify listening history and fetch lyrics
+2. **Embedding generation**: Use Sentence Transformers to convert lyrics into vector representations
+3. **Vector storage**: Store embeddings in ChromaDB for fast similarity search
+4. **Semantic search**: Query by meaning, not exact keywords—RAG-powered retrieval finds conceptually similar songs
+
+### Technical Stack
+
+- **Python** for data processing and API orchestration
+- **ChromaDB** for vector storage and similarity search
+- **Sentence Transformers** for generating semantic embeddings
+- **RAG architecture** for retrieval-augmented search
+
+## The Impact
+
+What was impossible with traditional search is now effortless. Describe what you&apos;re feeling, and LyricLens finds songs that match that emotion. It&apos;s like having a music-obsessed friend who knows exactly what song you&apos;re thinking of.
+
+This project taught me how vector databases and semantic search can transform unstructured text into something queryable by meaning—a fundamental skill for modern AI applications.

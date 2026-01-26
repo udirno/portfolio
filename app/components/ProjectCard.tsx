@@ -196,6 +196,15 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
                 </video>
               )}
             </div>
+          ) : project.content && project.content.trim() ? (
+            <div>
+              <h3 className="text-lg font-semibold text-red-600 mb-3">Starting Prompt</h3>
+              <div className="rounded-lg border border-gray-800 bg-gray-950 p-6 max-h-96 overflow-y-auto">
+                <pre className="text-sm text-gray-300 whitespace-pre-wrap font-mono leading-relaxed select-all">
+                  {project.content}
+                </pre>
+              </div>
+            </div>
           ) : (
             <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-12 text-center">
               <div className="flex flex-col items-center gap-4">

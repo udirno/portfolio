@@ -89,7 +89,6 @@ Let's work on: [Specific task you want to tackle]
 
 **Start dev server:**
 ```bash
-cd /Users/udirno/Desktop/website/portfolio
 npm run dev
 # Opens on http://localhost:3000
 ```

@@ -143,8 +143,19 @@ export function About() {
           transition={{ duration: 0.6 }}
           className="text-lg md:text-xl text-gray-300 leading-relaxed mb-12"
         >
-          I&apos;m Udirno. I build stuff — search tools, automation, websites. 24, figuring it out.
+          Hi, I&apos;m Udirno. This is an organized brain dump of side projects and creative interests. Glad you&apos;re here.
         </motion.p>
+
+        {/* Experience Label */}
+        <motion.h3
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="text-sm font-semibold text-gray-500 uppercase tracking-wider mb-6"
+        >
+          Experience
+        </motion.h3>
 
         {/* Badges */}
         <div className="flex flex-col md:flex-row items-center justify-center gap-6 md:gap-8">

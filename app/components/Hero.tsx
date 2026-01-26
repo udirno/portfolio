@@ -300,7 +300,7 @@ export function Hero() {
           <motion.h1
             animate={{ opacity: isHovered ? 0 : 1 }}
             transition={{ duration: 0.6, ease: 'easeInOut' }}
-            className="text-7xl md:text-8xl lg:text-9xl font-semibold tracking-tight whitespace-nowrap"
+            className="text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight whitespace-nowrap"
             style={{
               background: 'linear-gradient(135deg, #ffffff 0%, #ff6b6b 40%, #DC2626 80%, #991B1B 100%)',
               WebkitBackgroundClip: 'text',
@@ -324,7 +324,7 @@ export function Hero() {
           <motion.h1
             animate={{ opacity: isHovered ? 1 : 0 }}
             transition={{ duration: 0.6, ease: 'easeInOut' }}
-            className="absolute inset-0 text-7xl md:text-8xl lg:text-9xl font-semibold tracking-tight flex items-center justify-center whitespace-nowrap"
+            className="absolute inset-0 text-7xl md:text-8xl lg:text-9xl font-bold tracking-tight flex items-center justify-center whitespace-nowrap"
             style={{
               background: 'linear-gradient(135deg, #ffffff 0%, #ff6b6b 40%, #DC2626 80%, #991B1B 100%)',
               WebkitBackgroundClip: 'text',

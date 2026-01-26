@@ -3,6 +3,7 @@
 import { useState, useRef } from 'react';
 import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
 import { Github, ExternalLink, BookOpen } from 'lucide-react';
+import Image from 'next/image';
 import type { Project } from '@/lib/mdx';
 
 interface ProjectCardProps {
@@ -164,9 +165,57 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
           ))}
         </div>
 
-        {/* Full Content */}
-        <div className="prose prose-invert max-w-none mb-6">
-          <p className="text-gray-300 leading-relaxed">{project.content}</p>
+        {/* Media Section */}
+        <div className="mb-6">
+          {project.image ? (
+            <div className="rounded-lg overflow-hidden border border-gray-800 relative w-full aspect-video">
+              <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover"
+                sizes="(max-width: 768px) 100vw, 672px"
+              />
+            </div>
+          ) : project.video ? (
+            <div className="rounded-lg overflow-hidden border border-gray-800 aspect-video">
+              {project.video.includes('youtube.com') || project.video.includes('youtu.be') ? (
+                <iframe
+                  src={project.video}
+                  className="w-full h-full"
+                  allowFullScreen
+                  title={project.title}
+                />
+              ) : (
+                <video
+                  src={project.video}
+                  controls
+                  className="w-full h-full"
+                >
+                  Your browser does not support the video tag.
+                </video>
+              )}
+            </div>
+          ) : (
+            <div className="rounded-lg border border-gray-800 bg-gray-900/50 p-12 text-center">
+              <div className="flex flex-col items-center gap-4">
+                <svg
+                  className="w-16 h-16 text-gray-600"
+                  fill="none"
+                  stroke="currentColor"
+                  viewBox="0 0 24 24"
+                >
+                  <path
+                    strokeLinecap="round"
+                    strokeLinejoin="round"
+                    strokeWidth={1.5}
+                    d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"
+                  />
+                </svg>
+                <p className="text-gray-500 text-sm">Demo coming soon</p>
+              </div>
+            </div>
+          )}
         </div>
 
         {/* Links */}

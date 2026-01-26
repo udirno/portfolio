@@ -11,6 +11,8 @@ export interface Project {
   github?: string;
   blog?: string;
   website?: string;
+  image?: string;
+  video?: string;
   content: string;
 }
 
@@ -35,6 +37,8 @@ export function getAllProjects(): Project[] {
         github: data.github,
         blog: data.blog,
         website: data.website,
+        image: data.image,
+        video: data.video,
         content,
       } as Project;
     });

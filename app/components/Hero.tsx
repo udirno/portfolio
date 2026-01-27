@@ -92,10 +92,10 @@ export function Hero() {
         >
           <svg
             viewBox="0 0 100 100"
-            className="w-full h-full opacity-30"
+            className="w-full h-full opacity-[0.08]"
             preserveAspectRatio="none"
             style={{
-              filter: `drop-shadow(0 10px 30px rgba(${colors.primaryDarkRgb}, 0.4))`,
+              filter: 'none',
             }}
           >
             <defs>
@@ -151,10 +151,10 @@ export function Hero() {
               style={{ transition: 'stroke 0.6s cubic-bezier(0.4, 0, 0.2, 1)' }}
             />
 
-            {/* Pyramid edges - more visible */}
-            <line x1="50" y1="20" x2="0" y2="95" stroke={colors.primary} strokeWidth="1.5" opacity="0.6" />
-            <line x1="50" y1="20" x2="100" y2="95" stroke={colors.primary} strokeWidth="1.5" opacity="0.6" />
-            <line x1="0" y1="95" x2="100" y2="95" stroke={colors.primaryDark} strokeWidth="2" opacity="0.55" />
+            {/* Pyramid edges - very subtle */}
+            <line x1="50" y1="20" x2="0" y2="95" stroke={colors.primary} strokeWidth="1" opacity="0.15" />
+            <line x1="50" y1="20" x2="100" y2="95" stroke={colors.primary} strokeWidth="1" opacity="0.15" />
+            <line x1="0" y1="95" x2="100" y2="95" stroke={colors.primaryDark} strokeWidth="1.5" opacity="0.12" />
           </svg>
         </motion.div>
 
@@ -412,6 +412,51 @@ export function Hero() {
           </motion.h1>
         </motion.div>
       </div>
+
+      {/* Visual guide line - connects hero text to inverted pyramid */}
+      <motion.div
+        initial={{ opacity: 0, scaleY: 0 }}
+        animate={{ opacity: 1, scaleY: 1 }}
+        transition={{ duration: 1.5, delay: 1.2, ease: 'easeOut' }}
+        className="absolute left-1/2 -translate-x-1/2 z-0"
+        style={{
+          top: '55%',
+          bottom: '160px',
+          width: '2px',
+          transformOrigin: 'top',
+        }}
+      >
+        <div
+          className="w-full h-full relative"
+          style={{
+            background: `linear-gradient(to bottom,
+              rgba(${colors.primaryRgb}, 0) 0%,
+              rgba(${colors.primaryRgb}, 0.4) 20%,
+              rgba(${colors.primaryRgb}, 0.6) 50%,
+              rgba(${colors.primaryRgb}, 0.4) 80%,
+              rgba(${colors.primaryRgb}, 0) 100%
+            )`,
+            transition: 'background 0.6s cubic-bezier(0.4, 0, 0.2, 1)',
+          }}
+        >
+          {/* Subtle glow effect */}
+          <motion.div
+            animate={{
+              opacity: [0.3, 0.6, 0.3],
+            }}
+            transition={{
+              duration: 3,
+              repeat: Infinity,
+              ease: 'easeInOut',
+            }}
+            className="absolute inset-0"
+            style={{
+              boxShadow: `0 0 8px 2px rgba(${colors.primaryRgb}, 0.4)`,
+              filter: 'blur(2px)',
+            }}
+          />
+        </div>
+      </motion.div>
 
       {/* Scroll Indicator - at bottom (aligned with inverted pyramid point) */}
       <motion.button

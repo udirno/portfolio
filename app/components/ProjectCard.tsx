@@ -1,7 +1,7 @@
 'use client';
 
 import { useState, useRef } from 'react';
-import { motion, useMotionValue, useSpring, useTransform } from 'framer-motion';
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from 'framer-motion';
 import { Github, ExternalLink, BookOpen } from 'lucide-react';
 import Image from 'next/image';
 import type { Project } from '@/lib/mdx';
@@ -109,6 +109,8 @@ interface ProjectModalProps {
 }
 
 export function ProjectModal({ project, onClose }: ProjectModalProps) {
+  const [isImageZoomed, setIsImageZoomed] = useState(false);
+
   if (!project) return null;
 
   return (
@@ -168,15 +170,79 @@ export function ProjectModal({ project, onClose }: ProjectModalProps) {
         {/* Media Section */}
         <div className="mb-6">
           {project.image ? (
-            <div className="rounded-lg overflow-hidden border border-gray-800 relative w-full aspect-video">
-              <Image
-                src={project.image}
-                alt={project.title}
-                fill
-                className="object-cover"
-                sizes="(max-width: 768px) 100vw, 672px"
-              />
-            </div>
+            <>
+              <div
+                className="rounded-lg overflow-hidden border border-gray-800 relative w-full aspect-video cursor-zoom-in group"
+                onClick={() => setIsImageZoomed(true)}
+              >
+                <Image
+                  src={project.image}
+                  alt={project.title}
+                  fill
+                  className="object-cover transition-transform duration-300 group-hover:scale-105"
+                  sizes="(max-width: 768px) 100vw, 672px"
+                />
+                <div className="absolute inset-0 bg-black/0 group-hover:bg-black/10 transition-colors flex items-center justify-center">
+                  <motion.div
+                    initial={{ opacity: 0, scale: 0.8 }}
+                    whileHover={{ opacity: 1, scale: 1 }}
+                    className="bg-black/70 rounded-full p-3 opacity-0 group-hover:opacity-100 transition-opacity"
+                  >
+                    <svg
+                      className="w-8 h-8 text-white"
+                      fill="none"
+                      stroke="currentColor"
+                      viewBox="0 0 24 24"
+                    >
+                      <path
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        strokeWidth={2}
+                        d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0zM10 7v3m0 0v3m0-3h3m-3 0H7"
+                      />
+                    </svg>
+                  </motion.div>
+                </div>
+              </div>
+
+              {/* Fullscreen Image Zoom */}
+              <AnimatePresence>
+                {isImageZoomed && (
+                  <motion.div
+                    initial={{ opacity: 0 }}
+                    animate={{ opacity: 1 }}
+                    exit={{ opacity: 0 }}
+                    className="fixed inset-0 z-[100] bg-black/95 backdrop-blur-sm flex items-center justify-center p-4"
+                    onClick={() => setIsImageZoomed(false)}
+                  >
+                    <button
+                      onClick={() => setIsImageZoomed(false)}
+                      className="absolute top-4 right-4 text-white hover:text-red-600 transition-colors z-10"
+                    >
+                      <svg className="w-8 h-8" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+                      </svg>
+                    </button>
+                    <motion.div
+                      initial={{ scale: 0.9 }}
+                      animate={{ scale: 1 }}
+                      exit={{ scale: 0.9 }}
+                      className="relative max-w-7xl max-h-[90vh] w-full h-full"
+                      onClick={(e) => e.stopPropagation()}
+                    >
+                      <Image
+                        src={project.image}
+                        alt={project.title}
+                        fill
+                        className="object-contain"
+                        sizes="100vw"
+                      />
+                    </motion.div>
+                    <p className="absolute bottom-4 text-gray-400 text-sm">Click anywhere to close</p>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </>
           ) : project.video ? (
             <div className="rounded-lg overflow-hidden border border-gray-800 aspect-video">
               {project.video.includes('youtube.com') || project.video.includes('youtu.be') ? (

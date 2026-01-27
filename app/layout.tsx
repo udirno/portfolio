@@ -9,14 +9,21 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Udirno Chaudhuri | Data Analyst & Technical Product Manager",
-  description: "Portfolio of Udirno Chaudhuri - Data Analyst & Technical Product Manager specializing in RAG, automation, and product development.",
-  keywords: ["Data Analyst", "Technical Product Manager", "RAG", "AI", "Automation", "Python"],
+  title: "Udirno Chaudhuri - Data Analyst & Engineer",
+  description: "Data analyst and engineer building semantic search, automation tools, and ethical reasoning systems. Projects using Python, Claude API, RAG, and modern web technologies.",
+  keywords: ["Data Analyst", "Software Engineer", "RAG", "Semantic Search", "Python", "TypeScript", "FastAPI", "Next.js"],
   authors: [{ name: "Udirno Chaudhuri" }],
   openGraph: {
-    title: "Udirno Chaudhuri | Data Analyst & Technical Product Manager",
-    description: "Portfolio of Udirno Chaudhuri - Data Analyst & Technical Product Manager",
+    title: "Udirno Chaudhuri - Data Analyst & Engineer",
+    description: "Data analyst and engineer building semantic search, automation tools, and ethical reasoning systems.",
     type: "website",
+    locale: "en_US",
+    siteName: "Udirno Chaudhuri Portfolio",
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Udirno Chaudhuri - Data Analyst & Engineer",
+    description: "Data analyst and engineer building semantic search, automation tools, and ethical reasoning systems.",
   },
 };
 

@@ -108,6 +108,9 @@ export function Contact() {
             © {new Date().getFullYear()} Udirno Chaudhuri. All rights reserved.
           </p>
           <p className="text-gray-600 text-xs mt-2">
+            San Francisco Bay Area
+          </p>
+          <p className="text-gray-600 text-xs mt-2">
             Built with{' '}
             <a
               href="https://claude.ai/code"

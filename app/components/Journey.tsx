@@ -20,9 +20,9 @@ export function Journey() {
         <div className="font-mono text-xs pb-4">
           {/* Year labels spread across timeline - with proper margins */}
           <div className="relative h-4 mb-1 text-gray-600 dark:text-gray-400">
-            <span className="absolute left-[5%] -translate-x-1/2">Jan 2024</span>
-            <span className="absolute left-[50%] -translate-x-1/2">Jan 2025</span>
-            <span className="absolute left-[95%] -translate-x-1/2">Jan 2026</span>
+            <span className="absolute left-[5%] -translate-x-1/2 whitespace-nowrap">Jan 2024</span>
+            <span className="absolute left-[50%] -translate-x-1/2 whitespace-nowrap">Jan 2025</span>
+            <span className="absolute left-[95%] -translate-x-1/2 whitespace-nowrap">Jan 2026</span>
           </div>
 
           {/* Vertical tick marks at year boundaries */}

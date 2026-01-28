@@ -1,7 +1,6 @@
 'use client';
 
 import { useEffect } from 'react';
-import { motion } from 'framer-motion';
 
 export default function Error({
   error,
@@ -15,23 +14,13 @@ export default function Error({
   }, [error]);
 
   return (
-    <div className="min-h-screen bg-black text-white flex items-center justify-center px-6">
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="max-w-md text-center"
-      >
+    <div className="min-h-screen bg-white dark:bg-black text-black dark:text-white flex items-center justify-center px-6">
+      <div className="max-w-md text-center">
         {/* Error Icon */}
-        <motion.div
-          initial={{ scale: 0 }}
-          animate={{ scale: 1 }}
-          transition={{ duration: 0.5, delay: 0.2 }}
-          className="mb-6"
-        >
-          <div className="w-20 h-20 mx-auto rounded-full bg-red-600/20 flex items-center justify-center">
+        <div className="mb-6">
+          <div className="w-20 h-20 mx-auto rounded-full bg-red-600/20 dark:bg-emerald-500/20 flex items-center justify-center">
             <svg
-              className="w-10 h-10 text-red-600"
+              className="w-10 h-10 text-red-600 dark:text-emerald-500"
               fill="none"
               stroke="currentColor"
               viewBox="0 0 24 24"
@@ -44,32 +33,28 @@ export default function Error({
               />
             </svg>
           </div>
-        </motion.div>
+        </div>
 
         {/* Error Message */}
-        <h2 className="text-3xl font-bold mb-4">Something went wrong</h2>
-        <p className="text-gray-400 mb-8">
+        <h2 className="text-3xl font-medium mb-4">Something went wrong</h2>
+        <p className="text-gray-600 dark:text-gray-400 mb-8">
           An unexpected error occurred. Don&apos;t worry, we&apos;re on it.
         </p>
 
         {/* Action Buttons */}
         <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <motion.button
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          <button
             onClick={reset}
-            className="px-6 py-3 bg-red-600 hover:bg-red-700 rounded-lg font-medium transition-colors"
+            className="px-6 py-3 bg-red-600 dark:bg-emerald-500 hover:bg-red-700 dark:hover:bg-emerald-600 text-white rounded-lg font-medium transition-colors"
           >
             Try again
-          </motion.button>
-          <motion.a
-            whileHover={{ scale: 1.05 }}
-            whileTap={{ scale: 0.95 }}
+          </button>
+          <a
             href="/"
-            className="px-6 py-3 bg-gray-800 hover:bg-gray-700 rounded-lg font-medium transition-colors"
+            className="px-6 py-3 bg-gray-200 dark:bg-gray-800 hover:bg-gray-300 dark:hover:bg-gray-700 rounded-lg font-medium transition-colors"
           >
             Go home
-          </motion.a>
+          </a>
         </div>
 
         {/* Debug Info (only in development) */}
@@ -78,13 +63,13 @@ export default function Error({
             <summary className="text-sm text-gray-500 cursor-pointer hover:text-gray-400">
               Error details
             </summary>
-            <pre className="mt-4 p-4 bg-gray-900 rounded text-xs text-red-400 overflow-auto">
+            <pre className="mt-4 p-4 bg-gray-100 dark:bg-gray-900 rounded text-xs text-red-600 dark:text-red-400 overflow-auto">
               {error.message}
               {error.digest && `\nDigest: ${error.digest}`}
             </pre>
           </details>
         )}
-      </motion.div>
+      </div>
     </div>
   );
 }

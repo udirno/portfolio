@@ -2,29 +2,27 @@ import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 
-export interface Project {
+export interface Post {
   slug: string;
   title: string;
   description: string;
   date: string;
   tags: string[];
-  github?: string;
-  blog?: string;
-  website?: string;
-  image?: string;
-  video?: string;
+  excerpt?: string;
+  draft?: boolean;
+  mediumUrl?: string;
   content: string;
 }
 
-const projectsDirectory = path.join(process.cwd(), 'content/projects');
+const postsDirectory = path.join(process.cwd(), 'content/posts');
 
-export function getAllProjects(): Project[] {
-  const fileNames = fs.readdirSync(projectsDirectory);
-  const projects = fileNames
+export function getAllPosts(): Post[] {
+  const fileNames = fs.readdirSync(postsDirectory);
+  const posts = fileNames
     .filter(fileName => fileName.endsWith('.mdx'))
     .map(fileName => {
       const slug = fileName.replace(/\.mdx$/, '');
-      const fullPath = path.join(projectsDirectory, fileName);
+      const fullPath = path.join(postsDirectory, fileName);
       const fileContents = fs.readFileSync(fullPath, 'utf8');
       const { data, content } = matter(fileContents);
 
@@ -34,17 +32,16 @@ export function getAllProjects(): Project[] {
         description: data.description,
         date: data.date,
         tags: data.tags || [],
-        github: data.github,
-        blog: data.blog,
-        website: data.website,
-        image: data.image,
-        video: data.video,
+        excerpt: data.excerpt,
+        draft: data.draft || false,
+        mediumUrl: data.mediumUrl,
         content,
-      } as Project;
-    });
+      } as Post;
+    })
+    .filter(post => !post.draft); // Filter out drafts
 
-  // Sort projects by date (most recent first)
-  return projects.sort((a, b) => {
+  // Sort posts by date (most recent first)
+  return posts.sort((a, b) => {
     if (a.date > b.date) return -1;
     if (a.date < b.date) return 1;
     return 0;

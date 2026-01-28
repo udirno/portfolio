@@ -1,20 +1,18 @@
-import { Navigation } from './components/Navigation';
-import { Hero } from './components/Hero';
-import { About } from './components/About';
-import { Projects } from './components/Projects';
-import { Contact } from './components/Contact';
-import { getAllProjects } from '@/lib/mdx';
+import { Header } from './components/Header';
+import { PostFeed } from './components/PostFeed';
+import { Journey } from './components/Journey';
+import { Footer } from './components/Footer';
+import { getAllPosts } from '@/lib/mdx';
 
 export default function Home() {
-  const projects = getAllProjects();
+  const posts = getAllPosts();
 
   return (
-    <main className="min-h-screen bg-black text-white">
-      <Navigation />
-      <Hero />
-      <About />
-      <Projects projects={projects} />
-      <Contact />
+    <main className="min-h-screen bg-white dark:bg-black text-black dark:text-white">
+      <Header />
+      <PostFeed posts={posts} />
+      <Journey />
+      <Footer />
     </main>
   );
 }

@@ -68,7 +68,7 @@ export function PostFeed({ posts }: PostFeedProps) {
                       {post.excerpt}
                     </p>
                   )}
-                  <div className="flex flex-wrap gap-2">
+                  <div className="flex flex-wrap gap-2 items-center">
                     {post.tags.map(tag => (
                       <span
                         key={tag}
@@ -77,6 +77,9 @@ export function PostFeed({ posts }: PostFeedProps) {
                         #{tag.toLowerCase().replace(/\s+/g, '')}
                       </span>
                     ))}
+                    <span className="text-xs text-gray-400 dark:text-gray-600">
+                      · {post.readingTime} min
+                    </span>
                   </div>
                 </article>
               ))}

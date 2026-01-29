@@ -12,9 +12,17 @@ export interface Post {
   draft?: boolean;
   mediumUrl?: string;
   content: string;
+  readingTime: number;
 }
 
 const postsDirectory = path.join(process.cwd(), 'content/posts');
+
+function calculateReadingTime(content: string): number {
+  const wordsPerMinute = 200;
+  const wordCount = content.trim().split(/\s+/).length;
+  const readingTime = Math.ceil(wordCount / wordsPerMinute);
+  return readingTime;
+}
 
 export function getAllPosts(): Post[] {
   const fileNames = fs.readdirSync(postsDirectory);
@@ -36,6 +44,7 @@ export function getAllPosts(): Post[] {
         draft: data.draft || false,
         mediumUrl: data.mediumUrl,
         content,
+        readingTime: calculateReadingTime(content),
       } as Post;
     })
     .filter(post => !post.draft); // Filter out drafts

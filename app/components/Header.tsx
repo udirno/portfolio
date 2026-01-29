@@ -21,6 +21,16 @@ export function Header() {
           </h1>
           <div className="flex items-center gap-4">
             <Link
+              href="/"
+              className={`text-sm transition-colors ${
+                pathname === '/'
+                  ? 'text-red-600 dark:text-emerald-500'
+                  : 'text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-emerald-500'
+              }`}
+            >
+              Home
+            </Link>
+            <Link
               href="/about"
               className={`text-sm transition-colors ${
                 pathname === '/about'

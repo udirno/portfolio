@@ -3,16 +3,8 @@ export function Now() {
     <section className="px-4 pb-12 sm:px-6 sm:pb-16">
       <div className="max-w-3xl mx-auto">
         <h2 className="text-xl font-medium mb-4">Now</h2>
-        <div className="text-gray-600 dark:text-gray-400 space-y-3">
-          <p>
-            Building multi-agent systems that argue with themselves. Exploring how AI can decompose complex ethical dilemmas through adversarial reasoning.
-          </p>
-          <p>
-            Learning about retrieval-augmented generation (RAG) and vector databases. Currently experimenting with ChromaDB and semantic search architectures.
-          </p>
-          <p>
-            Reading: <span className="italic">Thinking, Fast and Slow</span> by Daniel Kahneman
-          </p>
+        <div className="text-gray-600 dark:text-gray-400">
+          <p>Dabbling in AI</p>
         </div>
       </div>
     </section>

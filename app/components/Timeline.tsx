@@ -44,13 +44,13 @@ export function Timeline({ posts }: TimelineProps) {
       <div className="max-w-3xl mx-auto">
         <div className="font-mono text-sm">
           <div className="mb-1">Writing log</div>
-          <div className="text-red-600 dark:text-emerald-500">
+          <div className="text-emerald-500 dark:text-red-600 transition-colors duration-200">
             [{timeline.join('')}] {yearRange}
           </div>
           <div className="mt-1 ml-1">
             {startLabel} {' '.repeat(Math.max(0, timelineWidth - startLabel.length - endLabel.length))} {endLabel}
           </div>
-          <div className="mt-3 text-gray-600 dark:text-gray-400">
+          <div className="mt-3 text-gray-400 dark:text-gray-600 transition-colors duration-200">
             {posts.length} {posts.length === 1 ? 'entry' : 'entries'} over {monthsDiff} {monthsDiff === 1 ? 'month' : 'months'}
           </div>
         </div>

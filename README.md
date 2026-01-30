@@ -20,12 +20,14 @@ This site is intentionally **minimal and calm**—a research notebook, not a fla
 
 ## Features
 
-- **Blog Posts**: Text-first project entries grouped by year, linking to Medium articles
-- **Theme Toggle**: Manual dark/light mode switching (green accent in dark, red in light)
+- **Project Archive**: Text-first project entries grouped by year, linking to Medium articles
+- **Projects Page**: Simple list of GitHub repository links for all projects
+- **About Page**: Personal bio with contact information
+- **Theme Toggle**: Manual dark/light mode switching (green text on black in light mode, red text on white in dark mode)
 - **Travel Timeline**: Visual ASCII timeline showing recent international travels
 - **Bengali Name**: Hover over "Udirno" to see উদীর্ণ in Bengali
 - **Responsive Design**: Adapts smoothly from mobile to desktop
-- **MDX Content**: Blog posts managed through MDX files
+- **MDX Content**: Project entries managed through MDX files
 
 ---
 
@@ -48,16 +50,21 @@ This site is intentionally **minimal and calm**—a research notebook, not a fla
 portfolio/
 ├── app/
 │   ├── components/
-│   │   ├── Header.tsx           # Name with Bengali hover
-│   │   ├── PostFeed.tsx         # Blog posts grouped by year
+│   │   ├── Header.tsx           # Navigation with Home/About/Projects tabs
+│   │   ├── ProjectTimeline.tsx  # Project archive grouped by year
 │   │   ├── Journey.tsx          # Travel timeline visualization
 │   │   ├── ThemeToggle.tsx      # Dark/light mode toggle button
-│   │   ├── Footer.tsx           # Social links (GitHub, LinkedIn, Linktree, Email)
+│   │   ├── Footer.tsx           # Social links (GitHub, LinkedIn, Linktree)
 │   │   ├── ThemeProvider.tsx    # Theme context provider
-│   │   └── Timeline.tsx         # (Unused) Writing log concept
-│   ├── globals.css              # Minimal CSS (53 lines, down from 140)
+│   │   ├── Timeline.tsx         # Writing log timeline
+│   │   └── Now.tsx              # Current status section
+│   ├── about/
+│   │   └── page.tsx             # About page with bio
+│   ├── projects/
+│   │   └── page.tsx             # Projects page with GitHub links
+│   ├── globals.css              # Global styles with Tailwind v4 config
 │   ├── layout.tsx               # Root layout with metadata
-│   ├── page.tsx                 # Main page structure
+│   ├── page.tsx                 # Home page structure
 │   ├── error.tsx                # Error boundary
 │   ├── not-found.tsx            # 404 page
 │   └── loading.tsx              # Loading state
@@ -148,8 +155,10 @@ Edit `app/components/Journey.tsx` and add new entries to the positioning (requir
 #### **Change Theme Colors**
 
 Edit `app/globals.css`:
-- Light mode accent: `--accent: #DC2626` (red)
-- Dark mode accent: `--accent: #10b981` (emerald green)
+- Light mode (black bg): `--accent: #10b981` (emerald green), text uses `text-emerald-500 dark:text-red-600`
+- Dark mode (white bg): `--accent: #DC2626` (red), text uses `dark:text-red-600`
+
+**Important**: Using Tailwind v4 with class-based dark mode via `@variant dark (&:where(.dark, .dark *))`
 
 ---
 
@@ -202,7 +211,7 @@ git push origin main
 
 ### **Update Footer Links**
 
-Edit `app/components/Footer.tsx` to change GitHub, LinkedIn, Linktree, or Email URLs.
+Edit `app/components/Footer.tsx` to change GitHub, LinkedIn, or Linktree URLs.
 
 ### **Change Default Theme**
 
@@ -210,11 +219,13 @@ Edit `app/components/ThemeProvider.tsx`:
 ```tsx
 <NextThemesProvider
   attribute="class"
-  defaultTheme="dark"  // Change to "light" for light mode default
+  defaultTheme="light"  // Current: light mode (black bg, green text)
   enableSystem={false}
-  storageKey="portfolio-theme"
+  storageKey="portfolio-theme-v2"
 >
 ```
+
+**Note**: Light mode = black background with green text. Dark mode = white background with red text.
 
 ### **Add New Social Link**
 
@@ -277,12 +288,15 @@ npm run lint     # Run ESLint to check code quality
 
 | Task | File(s) to Edit |
 |------|-----------------|
-| Add blog post | `content/posts/*.mdx` |
+| Add project to archive | `content/posts/*.mdx` |
+| Update Projects page | `app/projects/page.tsx` |
+| Update About page | `app/about/page.tsx` |
 | Update footer links | `app/components/Footer.tsx` |
 | Change theme colors | `app/globals.css` |
 | Update travel timeline | `app/components/Journey.tsx` |
-| Modify header | `app/components/Header.tsx` |
+| Modify header navigation | `app/components/Header.tsx` |
 | Change metadata/SEO | `app/layout.tsx` |
+| Update Now section | `app/components/Now.tsx` |
 
 ### **Design Constraints**
 
@@ -298,7 +312,8 @@ Before pushing:
 - [ ] Site builds without errors (`npm run build`)
 - [ ] Theme toggle switches colors properly
 - [ ] Responsive design works (resize browser window)
-- [ ] All links work (Medium, GitHub, LinkedIn, Linktree, Email)
+- [ ] All links work (Medium, GitHub, LinkedIn, Linktree)
+- [ ] Navigation works (Home, About, Projects tabs)
 - [ ] Blog posts display correctly with proper dates
 
 ---
@@ -333,4 +348,4 @@ MIT License - feel free to use this template for your own site.
 
 ---
 
-**Questions?** Open an issue on [GitHub](https://github.com/udirno/portfolio/issues) or email hello@udirno.com
+**Questions?** Open an issue on [GitHub](https://github.com/udirno/portfolio/issues) or email udirno@gmail.com

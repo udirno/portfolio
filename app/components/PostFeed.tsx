@@ -33,9 +33,9 @@ export function PostFeed({ posts }: PostFeedProps) {
     <section className="px-4 pb-12 sm:px-6 sm:pb-16 md:pb-24">
       <div className="max-w-3xl mx-auto">
         {years.map(year => (
-          <div key={year} className="mb-12 sm:mb-16">
-            <h2 className="text-xl sm:text-2xl font-medium mb-6 sm:mb-8">{year}</h2>
-            <div className="space-y-8 sm:space-y-12">
+          <div key={year} className="mb-24">
+            <h2 className="text-xl sm:text-2xl font-serif font-semibold mb-8">{year}</h2>
+            <div className="space-y-16">
               {postsByYear[year].map(post => (
                 <article key={post.slug}>
                   <div className="flex flex-col sm:flex-row sm:items-baseline sm:justify-between gap-2 sm:gap-4 mb-2">
@@ -44,13 +44,13 @@ export function PostFeed({ posts }: PostFeedProps) {
                         href={post.mediumUrl}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-lg sm:text-xl font-normal text-red-600 dark:text-emerald-500 hover:underline transition-colors"
+                        className="text-lg sm:text-xl font-serif font-medium text-red-600 dark:text-emerald-500 hover:underline transition-colors"
                       >
                         {post.title}
                       </a>
                     ) : (
                       <span
-                        className="text-lg sm:text-xl font-normal transition-colors"
+                        className="text-lg sm:text-xl font-serif font-medium transition-colors"
                         style={{ color: titleColor }}
                       >
                         {post.title}
@@ -72,12 +72,12 @@ export function PostFeed({ posts }: PostFeedProps) {
                     {post.tags.map(tag => (
                       <span
                         key={tag}
-                        className="text-xs text-gray-500 dark:text-gray-500"
+                        className="text-xs font-mono text-gray-500 dark:text-gray-500"
                       >
                         #{tag.toLowerCase().replace(/\s+/g, '')}
                       </span>
                     ))}
-                    <span className="text-xs text-gray-400 dark:text-gray-600">
+                    <span className="text-xs font-mono text-gray-400 dark:text-gray-600">
                       · {post.readingTime} min
                     </span>
                   </div>

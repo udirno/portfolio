@@ -13,7 +13,7 @@ export function Header() {
       <div className="max-w-3xl mx-auto">
         <div className="flex items-center justify-between gap-4">
           <h1
-            className="text-3xl sm:text-4xl font-normal tracking-tight cursor-pointer transition-all duration-300"
+            className="text-3xl sm:text-4xl font-serif font-normal tracking-tight cursor-pointer transition-all duration-300"
             onMouseEnter={() => setShowBengali(true)}
             onMouseLeave={() => setShowBengali(false)}
           >
@@ -22,23 +22,33 @@ export function Header() {
           <div className="flex items-center gap-4">
             <Link
               href="/"
-              className={`text-sm transition-colors ${
+              className={`text-sm transition-colors duration-200 ${
                 pathname === '/'
-                  ? 'text-red-600 dark:text-emerald-500'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-emerald-500'
+                  ? 'text-emerald-500 dark:text-red-600'
+                  : 'text-gray-400 dark:text-gray-600 hover:text-emerald-500 dark:hover:text-red-600'
               }`}
             >
               Home
             </Link>
             <Link
               href="/about"
-              className={`text-sm transition-colors ${
+              className={`text-sm transition-colors duration-200 ${
                 pathname === '/about'
-                  ? 'text-red-600 dark:text-emerald-500'
-                  : 'text-gray-600 dark:text-gray-400 hover:text-red-600 dark:hover:text-emerald-500'
+                  ? 'text-emerald-500 dark:text-red-600'
+                  : 'text-gray-400 dark:text-gray-600 hover:text-emerald-500 dark:hover:text-red-600'
               }`}
             >
               About
+            </Link>
+            <Link
+              href="/projects"
+              className={`text-sm transition-colors duration-200 ${
+                pathname === '/projects'
+                  ? 'text-emerald-500 dark:text-red-600'
+                  : 'text-gray-400 dark:text-gray-600 hover:text-emerald-500 dark:hover:text-red-600'
+              }`}
+            >
+              Projects
             </Link>
             <ThemeToggle />
           </div>

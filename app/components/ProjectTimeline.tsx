@@ -55,33 +55,14 @@ export function ProjectTimeline({ posts }: ProjectTimelineProps) {
                         rel="noopener noreferrer"
                         className="block group"
                       >
-                        <h3 className="text-2xl sm:text-3xl font-serif font-normal text-emerald-500 dark:text-red-600 mb-2 group-hover:opacity-80 transition-all duration-200">
+                        <h3 className="text-2xl sm:text-3xl font-serif font-normal text-emerald-500 dark:text-red-600 underline decoration-emerald-500/30 dark:decoration-red-600/30 group-hover:decoration-emerald-500 dark:group-hover:decoration-red-600 group-hover:opacity-80 transition-all duration-200">
                           {post.title}
                         </h3>
                       </a>
                     ) : (
-                      <h3 className="text-2xl sm:text-3xl font-serif font-normal text-emerald-500 dark:text-red-600 transition-colors duration-200 mb-2">
+                      <h3 className="text-2xl sm:text-3xl font-serif font-normal text-emerald-500 dark:text-red-600 transition-colors duration-200">
                         {post.title}
                       </h3>
-                    )}
-
-                    {(post.excerpt || post.description) && (
-                      <p className="text-base text-gray-400 dark:text-gray-600 transition-colors duration-200 mb-4 leading-relaxed">
-                        {post.excerpt || post.description}
-                      </p>
-                    )}
-
-                    {post.tags.length > 0 && (
-                      <div className="flex flex-wrap gap-3">
-                        {post.tags.map(tag => (
-                          <span
-                            key={tag}
-                            className="font-mono text-xs text-gray-500 dark:text-gray-500 transition-colors duration-200"
-                          >
-                            #{tag.toUpperCase().replace(/\s+/g, '')}
-                          </span>
-                        ))}
-                      </div>
                     )}
                   </div>
                 </article>

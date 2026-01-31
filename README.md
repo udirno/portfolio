@@ -20,6 +20,7 @@ This site is intentionally **minimal and calm**—a research notebook, not a fla
 
 ## Features
 
+- **Intro Animation**: First-visit UC logo animation with custom SVG arcs that slide and rotate
 - **Project Archive**: Text-first project entries grouped by year, linking to Medium articles
 - **Projects Page**: Simple list of GitHub repository links for all projects
 - **About Page**: Personal bio with contact information
@@ -51,6 +52,8 @@ portfolio/
 ├── app/
 │   ├── components/
 │   │   ├── Header.tsx           # Navigation with Home/About/Projects tabs
+│   │   ├── HomePage.tsx         # Main homepage content wrapper
+│   │   ├── IntroAnimation.tsx   # UC logo intro animation (first visit only)
 │   │   ├── ProjectTimeline.tsx  # Project archive grouped by year
 │   │   ├── Journey.tsx          # Travel timeline visualization
 │   │   ├── ThemeToggle.tsx      # Dark/light mode toggle button
@@ -297,6 +300,7 @@ npm run lint     # Run ESLint to check code quality
 | Modify header navigation | `app/components/Header.tsx` |
 | Change metadata/SEO | `app/layout.tsx` |
 | Update Now section | `app/components/Now.tsx` |
+| Modify intro animation | `app/components/IntroAnimation.tsx` |
 
 ### **Design Constraints**
 
@@ -320,8 +324,8 @@ Before pushing:
 
 ## Architecture Decisions
 
-### **Why No Animations?**
-Framer Motion was removed to achieve instant page loads and a calm, focused reading experience. Simple CSS transitions are used sparingly.
+### **Why Minimal Animations?**
+Framer Motion was removed to achieve instant page loads and a calm, focused reading experience. Simple CSS transitions are used sparingly. The UC logo intro animation plays once on first visit using sessionStorage, then never again—it's subtle and purposeful, not distracting.
 
 ### **Why Text-First?**
 The goal is a research notebook aesthetic—legible, fast, and timeless. Visual complexity was intentionally removed.

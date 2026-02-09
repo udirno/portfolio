@@ -1,0 +1,44 @@
+---
+title: "JobDigest"
+description: "AI-powered job search automation. Chrome extension that fetches, scores, and tracks jobs with Claude API."
+date: "2026-02-09"
+tags: ["Chrome Extension", "Claude API", "Local-First"]
+excerpt: "Automate job search with AI scoring. Fetches 100 jobs daily, scores based on resume match, generates cover letters."
+---
+
+**Links:** [GitHub](https://github.com/udirno/jobdigest)
+
+## The Problem
+
+Job searching is a full-time job. Browsing LinkedIn, Indeed, and other job boards takes 2+ hours daily. You see hundreds of listings, most irrelevant, and it's exhausting to evaluate each one. By the time you apply to promising roles, you've already burned through your energy on poor matches.
+
+## The Solution
+
+I built JobDigest—a Chrome extension that automates the entire job search pipeline. It fetches jobs daily from Adzuna and JSearch APIs, scores them 0-100 using Claude based on your resume, generates tailored cover letters and recruiter messages, and tracks your applications. Everything runs locally in your browser with zero hosting costs.
+
+### Key Features
+
+- **Automated daily fetching** from multiple job APIs (100 jobs/day cap)
+- **AI-powered scoring** (0-100) based on resume match using Claude Haiku
+- **5-dimension evaluation**: Skills, experience, tech stack, title relevance, industry fit
+- **Content generation**: Tailored cover letters and recruiter messages
+- **Application tracking**: Notes, dates, status management (New → Contacted → Applied → Passed)
+- **CSV export** for data ownership
+- **Local-first architecture**—all data stored in chrome.storage.local
+
+### Technical Implementation
+
+Built with vanilla JavaScript (7,550 LOC across 22 files) as a Manifest V3 Chrome extension. Uses Claude Haiku 4.5 with prompt caching for cost efficiency (~$10-12/month), implements checkpoint-based recovery for crash resilience, and features adaptive job distribution across APIs based on quality metrics.
+
+Core architecture:
+- **Service worker lifecycle management** with alarm-based scheduling
+- **Robust error handling** with retry backoff and graceful degradation
+- **Smart rate limiting** (500ms delays = 120 RPM, under 50 RPM API limit)
+- **Storage abstraction layer** with defensive defaults and auto-reset daily stats
+- **Resume parsing** supporting PDF, DOCX, and plain text
+
+## The Impact
+
+Eliminates 2+ hours of daily job browsing. Instead of manually evaluating hundreds of listings, you get a curated feed of high-quality matches with AI explanations. Focus on applying to top-scored jobs while the extension handles fetching, filtering, and content generation in the background.
+
+**Shipped v1 in 2 weeks. Saved 14+ hours per week.**

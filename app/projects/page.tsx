@@ -8,6 +8,13 @@ export const metadata = {
 
 const projects = [
   {
+    name: 'JobDigest',
+    description: 'Chrome extension that automates job search with AI-powered scoring. Fetches jobs daily from multiple APIs, scores 0-100 based on resume match using Claude, generates cover letters, and tracks applications—all running locally.',
+    tags: ['Chrome Extension', 'Claude API', 'Vanilla JS', 'Local-First', 'Job Search'],
+    githubUrl: 'https://github.com/udirno/jobdigest',
+    accentColor: 'bg-gray-500',
+  },
+  {
     name: 'Argument Decomposer',
     description: 'Built a multi-framework analysis system applying Toulmin methodology to decompose arguments into claims, warrants, and rebuttals across ethical dimensions.',
     tags: ['FastAPI', 'Toulmin Model', 'Ethical Frameworks', 'Argument Mining'],

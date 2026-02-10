@@ -12,6 +12,7 @@ const projects = [
     description: 'Chrome extension that automates job search with AI-powered scoring. Fetches jobs daily from multiple APIs, scores 0-100 based on resume match using Claude, generates cover letters, and tracks applications—all running locally.',
     tags: ['Chrome Extension', 'Claude API', 'Vanilla JS', 'Local-First', 'Job Search'],
     githubUrl: 'https://github.com/udirno/jobdigest',
+    blogUrl: 'https://medium.com/@udirno/jobdigest-custom-ai-scored-job-search-in-a-chrome-extension-d14aef6025be',
     accentColor: 'bg-gray-500',
   },
   {

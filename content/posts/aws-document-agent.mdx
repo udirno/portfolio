@@ -1,0 +1,47 @@
+---
+title: "AWS Document Intelligence Agent"
+description: "Router-specialist agent built at AWS AI Builder Lab. Processes documents and returns structured JSON."
+date: "2026-02-13"
+tags: ["AWS Bedrock", "LlamaIndex", "AgentCore"]
+excerpt: "Document intelligence agent using router-specialist pattern. Natural language queries to structured JSON extraction."
+mediumUrl: "https://medium.com/@udirno/building-a-document-intelligence-agent-on-aws-e3f09b2dc295"
+---
+
+**Links:** [Blog Post](https://medium.com/@udirno/building-a-document-intelligence-agent-on-aws-e3f09b2dc295)
+
+## The Problem
+
+Document processing in enterprise settings is messy. You have purchase orders, supplier invoices, product catalogs—all in different formats. Extracting specific data means parsing PDFs manually or writing brittle scrapers that break when formats change. Systems need reliable, structured output, not guesses.
+
+## The Solution
+
+I built a document intelligence agent at the AWS AI Builder Lab hackathon. Instead of one monolithic agent, I used a router-specialist pattern: a router reads the question, identifies the document type, and routes to a specialist that only knows that domain. Ask about pricing and the catalog specialist searches indexed PDFs. Ask about order ORD-2024-001234 and the order specialist extracts customer name, line items, and validates that totals add up correctly.
+
+### Key Features
+
+- **Router-specialist architecture**: Separate agents per document type (orders, invoices, catalogs)
+- **Validated extraction**: Pydantic schemas enforce structure—LLM can't skip fields or make up formats
+- **Knowledge base grounding**: Searches real documents instead of hallucinating answers
+- **AWS-native deployment**: CloudFormation infrastructure, Bedrock Knowledge Bases, Lambda tools, AgentCore runtime
+- **Handled all 11 test cases**: Correct routing, accurate extraction, properly formatted JSON
+
+### Technical Implementation
+
+Built with LlamaIndex orchestration and Claude Sonnet 4.5 via AWS Bedrock. Deployed on AgentCore, AWS's managed runtime for agents. Infrastructure provisioned via CloudFormation—S3 storage, Lambda functions, Bedrock Knowledge Bases. Extracted documents using Pydantic schemas (9/10 success rate), synced to knowledge bases, deployed a 719-line Python agent script.
+
+Core pipeline:
+- **Raw PDFs (S3)** → LlamaCloud + Pydantic schemas → Structured JSON
+- **Bedrock Knowledge Bases** (orders, invoices, catalogs)
+- **Lambda Functions** (one per document type, used as agent tools)
+- **LlamaIndex Agent** (router → specialist) powered by Claude Sonnet 4.5
+- **Structured JSON Response**
+
+Dev environment: Coder workspace with JupyterLab and Claude Code.
+
+## The Impact
+
+This was my first deployment on AWS. What clicked was seeing how managed services connect—storage feeds knowledge bases, knowledge bases power Lambda tools, tools become agent capabilities, all running on managed runtime. I've built multi-agent systems from scratch before (Argument Decomposer, LyricLens), but this showed how AWS abstracts those patterns at scale.
+
+For a startup processing invoices or contracts, this architecture makes sense: agents handle routing and extraction, knowledge bases ground outputs in real data, validation schemas ensure downstream reliability.
+
+**Built at AWS AI Builder Lab: Clash of Agents—February 13, 2026, San Francisco.**

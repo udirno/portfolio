@@ -101,14 +101,16 @@ export default function Projects() {
 
                     {/* Links */}
                     <div className="flex gap-4 text-sm pt-2">
-                      <a
-                        href={project.githubUrl}
-                        target="_blank"
-                        rel="noopener noreferrer"
-                        className="font-mono text-emerald-500 dark:text-red-600 hover:opacity-80 transition-all duration-200"
-                      >
-                        GitHub
-                      </a>
+                      {project.githubUrl && (
+                        <a
+                          href={project.githubUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-mono text-emerald-500 dark:text-red-600 hover:opacity-80 transition-all duration-200"
+                        >
+                          GitHub
+                        </a>
+                      )}
                       {project.blogUrl && (
                         <a
                           href={project.blogUrl}

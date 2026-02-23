@@ -12,6 +12,7 @@ const projects = [
     description: 'Built a document intelligence agent at AWS AI Builder Lab using router-specialist pattern. Processes natural language queries about purchase orders, invoices, and catalogs—returns structured JSON with validated extraction. Deployed on AWS Bedrock with LlamaIndex orchestration.',
     tags: ['AWS Bedrock', 'LlamaIndex', 'AgentCore', 'Coder'],
     blogUrl: 'https://medium.com/@udirno/building-a-document-intelligence-agent-on-aws-e3f09b2dc295',
+    certificateUrl: 'https://www.aicamp.ai/index/certificate/W2026021314udch',
     accentColor: 'bg-gray-500',
   },
   {
@@ -119,6 +120,16 @@ export default function Projects() {
                           className="font-mono text-emerald-500 dark:text-red-600 hover:opacity-80 transition-all duration-200"
                         >
                           Blog
+                        </a>
+                      )}
+                      {project.certificateUrl && (
+                        <a
+                          href={project.certificateUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-mono text-emerald-500 dark:text-red-600 hover:opacity-80 transition-all duration-200"
+                        >
+                          Certificate
                         </a>
                       )}
                     </div>

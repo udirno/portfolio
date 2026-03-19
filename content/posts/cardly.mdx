@@ -1,0 +1,28 @@
+---
+title: "Cardly"
+description: "AI-powered greeting card app. Claude generates copy, 30 SVG templates, shareable links via Supabase."
+date: "2026-03-18"
+tags: ["Next.js", "Claude API", "Supabase", "TypeScript"]
+excerpt: "Greeting card app with Claude-powered copy generation, 30 hand-built SVG templates, PNG export, and shareable links."
+linkUrl: "https://cardly-git-main-udirnos-projects.vercel.app"
+---
+
+**Links:** [GitHub](https://github.com/udirno/cardly)
+
+## The Problem
+
+Most digital greeting card tools are either outdated (clip-art aesthetics, account walls) or Western-centric — they cover Christmas and birthdays but ignore Diwali, Eid, Lunar New Year, or Nowruz. And the ones that do exist rarely produce cards you'd actually want to send.
+
+## The Solution
+
+Cardly generates personalized greeting cards in seconds. Pick an occasion, set the vibe (warm, funny, elegant, bold), and Claude writes copy that avoids generic greeting-card language. The card renders on one of 30 hand-built SVG/CSS templates across 15 occasions — each with its own color palette and layered decorative elements.
+
+Cards are editable inline, exportable as PNG at 2x resolution with embedded fonts, and shareable via link with a 30-day TTL backed by Supabase. No account needed.
+
+## Key Features
+
+- **30 templates across 15 occasions** — cultural-first: Diwali, Eid, Lunar New Year, Nowruz, Hanukkah alongside birthdays and weddings
+- **Prompt-engineered tone control** — forbidden cliché list, vibe calibration, and cultural specificity baked into the system prompt
+- **PNG export pipeline** — html-to-image with custom font embedding at 2x pixel ratio
+- **Shareable links** — Supabase-backed with RLS-enforced 30-day TTL, nanoid slugs
+- **Zero friction** — no accounts, no email, instant generation

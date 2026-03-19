@@ -11,6 +11,7 @@ export interface Post {
   excerpt?: string;
   draft?: boolean;
   mediumUrl?: string;
+  linkUrl?: string;
   content: string;
   readingTime: number;
 }
@@ -43,6 +44,7 @@ export function getAllPosts(): Post[] {
         excerpt: data.excerpt,
         draft: data.draft || false,
         mediumUrl: data.mediumUrl,
+        linkUrl: data.linkUrl,
         content,
         readingTime: calculateReadingTime(content),
       } as Post;

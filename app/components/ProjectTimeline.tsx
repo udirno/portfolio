@@ -48,9 +48,9 @@ export function ProjectTimeline({ posts }: ProjectTimelineProps) {
 
                   {/* Content column */}
                   <div>
-                    {post.mediumUrl ? (
+                    {(post.mediumUrl || post.linkUrl) ? (
                       <a
-                        href={post.mediumUrl}
+                        href={post.linkUrl || post.mediumUrl}
                         target="_blank"
                         rel="noopener noreferrer"
                         className="block group"

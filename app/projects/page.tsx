@@ -8,6 +8,14 @@ export const metadata = {
 
 const projects = [
   {
+    name: 'Cardly',
+    description: 'AI-powered greeting card app that generates personalized copy with Claude and renders it across 30 hand-built SVG templates spanning 15 occasions. Supports inline editing, PNG export, and shareable links with a 30-day TTL — no account required.',
+    tags: ['Next.js', 'Claude API', 'Supabase', 'TypeScript', 'SVG/CSS'],
+    githubUrl: 'https://github.com/udirno/cardly',
+    liveUrl: 'https://cardly-git-main-udirnos-projects.vercel.app',
+    accentColor: 'bg-gray-500',
+  },
+  {
     name: 'Document Intelligence Agent',
     description: 'Built a document intelligence agent at AWS AI Builder Lab using router-specialist pattern. Processes natural language queries about purchase orders, invoices, and catalogs—returns structured JSON with validated extraction. Deployed on AWS Bedrock with LlamaIndex orchestration.',
     tags: ['AWS Bedrock', 'LlamaIndex', 'AgentCore', 'Coder'],
@@ -110,6 +118,16 @@ export default function Projects() {
                           className="font-mono text-emerald-500 dark:text-red-600 hover:opacity-80 transition-all duration-200"
                         >
                           GitHub
+                        </a>
+                      )}
+                      {project.liveUrl && (
+                        <a
+                          href={project.liveUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="font-mono text-emerald-500 dark:text-red-600 hover:opacity-80 transition-all duration-200"
+                        >
+                          Try It
                         </a>
                       )}
                       {project.blogUrl && (

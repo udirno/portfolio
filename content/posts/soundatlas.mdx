@@ -1,0 +1,26 @@
+---
+title: "SoundAtlas"
+description: "Plots 3,000+ Spotify artists across 249 countries on a Mapbox world map. Claude chat panel answers natural-language queries about the library."
+date: "2026-04-19"
+tags: ["Mapbox GL", "PostgreSQL", "MusicBrainz API", "LLM Tool Use", "Async Python"]
+excerpt: "Maps a Spotify library onto a world atlas — 3,000+ artists across 249 countries with a Claude chat interface."
+linkUrl: "https://soundatlas-pi.vercel.app"
+---
+
+**Links:** [GitHub](https://github.com/udirno/soundatlas)
+
+## The Problem
+
+Streaming apps surface top artists and genres, but never where the music actually comes from. I wanted to see my library as a geography, not a ranked list.
+
+## The Solution
+
+SoundAtlas ingests a Spotify library, resolves each artist's country of origin via the MusicBrainz API, and plots them on an interactive Mapbox world map colored by top genre per country. A Claude-powered chat panel answers natural-language questions about the data via structured tool use.
+
+## Key Features
+
+- **3,000+ artists across 249 countries** — plotted by MusicBrainz-resolved country of origin
+- **Genre-colored heatmap** — top genre per country drives the color scale
+- **Claude chat interface** — structured tool use over the library data
+- **Multi-stage enrichment pipeline** — Spotify → MusicBrainz → Postgres with resolution confidence scoring
+- **Split production deploy** — Next.js on Vercel, FastAPI + Postgres + Redis on Railway

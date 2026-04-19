@@ -8,6 +8,14 @@ export const metadata = {
 
 const projects = [
   {
+    name: 'SoundAtlas',
+    description: 'Plots 3,000+ Spotify artists across 249 countries on a Mapbox world map, resolved via MusicBrainz and colored by top genre per country. Claude chat panel answers natural-language queries about the library via structured tool use.',
+    tags: ['Mapbox GL', 'PostgreSQL', 'MusicBrainz API', 'LLM Tool Use', 'Async Python'],
+    githubUrl: 'https://github.com/udirno/soundatlas',
+    liveUrl: 'https://soundatlas-pi.vercel.app',
+    accentColor: 'bg-gray-500',
+  },
+  {
     name: 'Cardly',
     description: 'AI-powered greeting card app that generates personalized copy with Claude and renders it across 30 hand-built SVG templates spanning 15 occasions. Supports inline editing, PNG export, and shareable links with a 30-day TTL — no account required.',
     tags: ['Next.js', 'Claude API', 'Supabase', 'TypeScript', 'SVG/CSS'],

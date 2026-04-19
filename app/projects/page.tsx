@@ -87,13 +87,13 @@ export default function Projects() {
               {projects.map((project) => (
                 <div
                   key={project.name}
-                  className="group border border-gray-800 dark:border-gray-200 transition-all duration-200 hover:shadow-lg hover:scale-[1.01]"
+                  className="group flex flex-col border border-gray-800 dark:border-gray-200 transition-all duration-200 hover:shadow-lg hover:scale-[1.01]"
                 >
                   {/* Accent bar */}
                   <div className={`h-0.5 ${project.accentColor} dark:${project.accentColor}`} />
 
                   {/* Content */}
-                  <div className="p-6 space-y-4">
+                  <div className="p-6 space-y-4 flex flex-col flex-1">
                     {/* Title */}
                     <h3 className="text-xl font-serif font-medium text-white dark:text-black transition-colors duration-200">
                       {project.name}
@@ -117,7 +117,7 @@ export default function Projects() {
                     </div>
 
                     {/* Links */}
-                    <div className="flex gap-4 text-sm pt-2">
+                    <div className="flex gap-4 text-sm pt-2 mt-auto">
                       {project.githubUrl && (
                         <a
                           href={project.githubUrl}

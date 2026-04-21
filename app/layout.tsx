@@ -24,13 +24,13 @@ export const metadata: Metadata = {
   title: "Udirno",
   description: "Data analyst and engineer building semantic search, automation tools, and ethical reasoning systems. Projects using Python, Claude API, RAG, and modern web technologies.",
   keywords: ["Data Analyst", "Software Engineer", "RAG", "Semantic Search", "Python", "TypeScript", "FastAPI", "Next.js"],
-  authors: [{ name: "Udirno Chaudhuri" }],
+  authors: [{ name: "Udirno" }],
   openGraph: {
     title: "Udirno",
     description: "Data analyst and engineer building semantic search, automation tools, and ethical reasoning systems.",
     type: "website",
     locale: "en_US",
-    siteName: "Udirno Chaudhuri Portfolio",
+    siteName: "Udirno",
   },
   twitter: {
     card: "summary_large_image",

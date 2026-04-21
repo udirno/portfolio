@@ -2,8 +2,8 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
 export const metadata = {
-  title: 'About - Udirno Chaudhuri',
-  description: 'About Udirno Chaudhuri - Data Analyst & Engineer',
+  title: 'About - Udirno',
+  description: 'About Udirno - Data Analyst & Engineer',
 };
 
 export default function About() {

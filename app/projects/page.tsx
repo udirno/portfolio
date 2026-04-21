@@ -2,8 +2,8 @@ import { Header } from '../components/Header';
 import { Footer } from '../components/Footer';
 
 export const metadata = {
-  title: 'Projects - Udirno Chaudhuri',
-  description: 'GitHub repositories and projects by Udirno Chaudhuri',
+  title: 'Projects - Udirno',
+  description: 'GitHub repositories and projects by Udirno',
 };
 
 const projects = [

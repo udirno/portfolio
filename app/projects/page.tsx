@@ -13,6 +13,7 @@ const projects = [
     tags: ['Mapbox GL', 'PostgreSQL', 'MusicBrainz API', 'Async SQLAlchemy', 'Redis'],
     githubUrl: 'https://github.com/udirno/soundatlas',
     liveUrl: 'https://soundatlas-pi.vercel.app',
+    blogUrl: 'https://medium.com/@udirno/soundatlas-a-map-of-my-music-taste-0bc89ab6378f',
     accentColor: 'bg-gray-500',
   },
   {

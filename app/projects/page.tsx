@@ -9,8 +9,8 @@ export const metadata = {
 const projects = [
   {
     name: 'SoundAtlas',
-    description: 'Plots 3,000+ Spotify artists across 249 countries on a Mapbox world map, resolved via MusicBrainz and colored by top genre per country. Claude chat panel answers natural-language queries about the library via structured tool use.',
-    tags: ['Mapbox GL', 'PostgreSQL', 'MusicBrainz API', 'LLM Tool Use', 'Async Python'],
+    description: 'A world map of where my music comes from. Resolves 3,000+ artists from my Spotify library to their country of origin via MusicBrainz, plots them on Mapbox colored by top genre per country, and includes a Claude chat panel for asking questions about the data.',
+    tags: ['Mapbox GL', 'PostgreSQL', 'MusicBrainz API', 'Async SQLAlchemy', 'Redis'],
     githubUrl: 'https://github.com/udirno/soundatlas',
     liveUrl: 'https://soundatlas-pi.vercel.app',
     accentColor: 'bg-gray-500',

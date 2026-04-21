@@ -18,7 +18,7 @@ export default function About() {
             <h2 className="text-xl font-serif font-medium mb-4 text-emerald-500 dark:text-red-600 transition-colors duration-200">About Me</h2>
             <div className="text-gray-400 dark:text-gray-600 transition-colors duration-200 space-y-4">
               <p>
-                Hi, I'm Udi—yes, a real person, not a bot. I graduated from UC Davis in 2023 with a B.S. in Statistics.
+                Hi, I'm Udi—yes, a real person, not a bot. I graduated from UC Davis in 2023 with a B.S. in Statistical Data Science.
                 I'm curious about data, AI applications, music, and calisthenics. I'll be adding to this site regularly, so stay tuned.
               </p>
               <div className="pt-2">

@@ -21,12 +21,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Udirno Chaudhuri - Data Analyst & Engineer",
+  title: "Udirno",
   description: "Data analyst and engineer building semantic search, automation tools, and ethical reasoning systems. Projects using Python, Claude API, RAG, and modern web technologies.",
   keywords: ["Data Analyst", "Software Engineer", "RAG", "Semantic Search", "Python", "TypeScript", "FastAPI", "Next.js"],
   authors: [{ name: "Udirno Chaudhuri" }],
   openGraph: {
-    title: "Udirno Chaudhuri - Data Analyst & Engineer",
+    title: "Udirno",
     description: "Data analyst and engineer building semantic search, automation tools, and ethical reasoning systems.",
     type: "website",
     locale: "en_US",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Udirno Chaudhuri - Data Analyst & Engineer",
+    title: "Udirno",
     description: "Data analyst and engineer building semantic search, automation tools, and ethical reasoning systems.",
   },
 };
